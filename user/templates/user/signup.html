@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+{% block 'body' %}
+    <div class="card mx-auto m-5" style="width: 25rem;">
+        <div class="card-body">
+            <h5 class="card-title">ثبت نام</h5>
+            <h6 class="card-subtitle mb-2 text-muted">برای ثبت نام مشخصات زیر را کامل کنید.</h6>
+            {% if success %}
+                <div class="alert alert-success">ایمیل فعالسازی برای شما ارسال شد، ممکن است این ایمیل در پوشه اسپم یا هرزنامه قرار گرفته باشد.</div>
+                <div class="alert alert-warning">اگر ایمیل را دریافت نکردید، با پشتیبانی تماس بگیرید.</div>
+            {% endif %}
+            <form action="{% url 'UserSignUpURL' %}" method="post" class="">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">{{ form.first_name.label }}</label>
+                    {{ form.first_name }}
+                    <div class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{{ form.last_name.label }}</label>
+                    {{ form.last_name }}
+                    <div class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{{ form.email.label }}</label>
+                    {{ form.email }}
+                    <div class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{{ form.phone.label }}</label>
+                    {{ form.phone }}
+                    <div class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{{ form.password.label }}</label>
+                    {{ form.password }}
+                    <div class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{{ form.password_rep.label }}</label>
+                    {{ form.password_rep }}
+                    <div class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">کد معرف</label>
+                    <input type="text" class="form-control">
+                    <div class="form-text">وارد کرن کد معرف اختیاری می باشد.</div>
+                </div>
+                <hr>
+                <div class="mb-3">
+                    <h6>من ربات نیستم</h6>
+                    {{ form.captcha }}
+                </div>
+                <hr>
+                <div class="mb-3">
+                    <p class="text-warning">ثبت نام در سایت به معنی پذیرش تمامی قوانین و مقررات است. پیشنهاد می شود پیش از ثبت نام قوانین را با دقت بخوانید.</p>
+                </div>
+
+                <button type="submit" class="btn btn-primary">ثبت نام</button>
+                <hr>
+                <div class="d-flex">
+                    <p>در سایت ما اکانت دارید؟ </p>
+                    <a href="{% url 'UserSignInURL' %}">وارد شوید!</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

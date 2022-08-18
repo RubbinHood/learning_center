@@ -1,0 +1,21 @@
+{% load static %}
+{% load render_partial %}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	{% include 'header-ref.html' %}
+</head>
+<body style="font-family: 'Katibeh';">
+<header>
+	{% render_partial 'home.views.header_partial_view' %}
+</header>
+<div class="overflow-hidden" style="min-height: vh;">
+	{% block 'body' %}
+	{% endblock %}
+</div>
+{% include 'footer-com.html' %}
+</body>
+</html>

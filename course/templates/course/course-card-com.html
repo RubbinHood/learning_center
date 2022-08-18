@@ -1,0 +1,24 @@
+{% load thumbnail %}
+
+<div class="card m-3" style="width: 18rem;">
+    {% thumbnail course.image "286x180" quality=60 as img %}
+        <img src="{{  img.url }}" class="card-img-top rounded-3 mt-2" alt="">
+    {% endthumbnail %}
+<!--    <img src="https://placeimg.com/286/180/tech" class="card-img-top rounded-3 mt-2" alt="">-->
+    <div class="card-body">
+        <h5 class="card-title">{{  course.title }}</h5>
+        <div class="d-flex">
+            <p>مدرس:</p>
+            <p>{{  course.teacher }}</p>
+        </div>
+        <div class="d-flex">
+            <p>دانشجویان:</p>
+            <p>{{  course.students }}</p>
+        </div>
+        <div class="d-flex">
+            <p>قیمت:</p>
+            <p>{{  course.price }}</p>
+        </div>
+        <a href="{% url 'CourseSingleURL' id=course.id %}" class="btn btn-primary">اطلاعات بیشتر</a>
+    </div>
+</div>

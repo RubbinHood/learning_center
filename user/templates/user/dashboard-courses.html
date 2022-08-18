@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block 'body' %}
+    {% include 'user/dashboard-nav-com.html' %}
+
+    <div class="row">
+        <div class="card m-2" style="width: 80%">
+            <div class="card-body">
+                <h5 class="card-title">دوره های من</h5>
+                <div class="d-flex border">
+                    <button class="btn border-start rounded-0 btn-info">همه</button>
+                    <button class="btn border-start rounded-0">تمام نشده</button>
+                    <button class="btn border-start rounded-0">تمام شده</button>
+                    <button class="btn border-start rounded-0">رایگان</button>
+                    <button class="btn border-start rounded-0">خریداری شده</button>
+                </div>
+                <hr>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">نام دوره</th>
+                            <th scope="col">مدرس</th>
+                            <th scope="col">وضعیت</th>
+                            <th scope="col">آدرس</th>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <td>دوره مقدماتی پایتون</td>
+                            <td>سید سروش غلامزاده</td>
+                            <td class="text-info">تمام نشده</td>
+                            <td><a href="">ورود به دوره</a></td>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <td>دوره مقدماتی پایتون</td>
+                            <td>سید سروش غلامزاده</td>
+                            <td class="text-info">تمام نشده</td>
+                            <td><a href="">ورود به دوره</a></td>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <td>دوره مقدماتی پایتون</td>
+                            <td>سید سروش غلامزاده</td>
+                            <td class="text-info">تمام نشده</td>
+                            <td><a href="">ورود به دوره</a></td>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <td>دوره مقدماتی پایتون</td>
+                            <td>سید سروش غلامزاده</td>
+                            <td class="text-info">تمام نشده</td>
+                            <td><a href="">ورود به دوره</a></td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="card m-2" style="width: 80%">
+            <p class="text-muted">با ثبت نظر خود درباره دوره هایی که طی کره اید، ما را در افزایش کیفیت آنها یاری فرمایید.</p>
+        </div>
+    </div>
+{% endblock %}

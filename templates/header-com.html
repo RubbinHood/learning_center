@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'HomeURL' %}">Learnin-Center</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="{% url 'CourseIndexURL' %}">دوره ها</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'ArticleIndexURL' %}">مقالات</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'DocufaLandingURL' %}">داکیوفا</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'ForumLandingURL' %}">انجمن</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'ContactUsURL' %}">تماس با ما</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'AboutUsURL' %}">درباره ما</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul class="navbar-nav">
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item"><a href="{% url 'UserDashboardURL' %}" class="nav-link">داشبورد</a></li>
+                {% else %}
+                    <li class="nav-item"><a href="{% url 'UserSignInURL' %}" class="nav-link">ورود</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

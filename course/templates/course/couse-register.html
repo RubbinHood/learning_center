@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+
+{% block 'body' %}
+    {% include 'user/dashboard-nav-com.html' %}
+
+    <div>
+        <div class="border rounded m-2 p-2 d-box">
+            <h2>ثبت نام دوره آموزشی</h2>
+            <hr>
+            <form action="" class="">
+                <div class="d-flex">
+                    <h5>مشخصات کاربر</h5>
+                    <div class="m-4">
+                        <label class="form-label">نام</label>
+                        <input type="text" class="form-control" disabled>
+                        <div class="form-text"></div>
+                    </div>
+                    <div class="m-4">
+                        <label class="form-label">نام خانوادگی</label>
+                        <input type="text" class="form-control" disabled>
+                        <div class="form-text"></div>
+                    </div>
+                    <div class="m-4">
+                        <label class="form-label">ایمیل</label>
+                        <input type="email" class="form-control" disabled>
+                        <div class="form-text"></div>
+                    </div>
+                    <div class="m-4">
+                        <label class="form-label">شماره تلفن</label>
+                        <input type="tel" class="form-control" disabled>
+                        <div class="form-text"></div>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-flex">
+                    <h5>مشخصات دوره</h5>
+                    <div class="m-4">
+                        <label class="form-label">عنوان</label>
+                        <input type="text" class="form-control" disabled>
+                        <div class="form-text"></div>
+                    </div>
+                    <div class="m-4">
+                        <label class="form-label">شماره</label>
+                        <input type="text" class="form-control" disabled>
+                        <div class="form-text"></div>
+                    </div>
+                    <div class="m-4">
+                        <label class="form-label">مدرس</label>
+                        <input type="email" class="form-control" disabled>
+                        <div class="form-text"></div>
+                    </div>
+                    <div class="m-4">
+                        <label class="form-label">قیمت</label>
+                        <input type="tel" class="form-control" disabled>
+                        <div class="form-text"></div>
+                    </div>
+                </div>
+                <hr>
+                <div class="mb-4">
+                    <h6>من ربات نیستم</h6>
+                    <label class="form-label">۳ + ۷ = </label>
+                    <input type="email" class="form-control" aria-describedby="emailHelp">
+                    <div class="form-text">برای ادامه روند ثبت نام، لطفا حاصل عبارت ریاضی بالا را وارد کنید.</div>
+                </div>
+                <hr>
+                <div class="mb-4">
+                    <label class="form-check-label">شرایط و ضوابط ثبت نام در دوره را می پذیرم.</label>
+                    <input type="checkbox" class="form-check-input" aria-describedby="emailHelp">
+                    <div class="form-text">پیش از پذیرفتن شرایط و ضوابط آنها را <a href="">اینجا</a>بخوانید.</div>
+                </div>
+                <p class="text-danger">توجه داشته باشید که شما به هیچ عنوان و در هیچ شکلی حق به اشتراک گذاشتن دوره را ندارید.</p>
+                <p class="text-danger">نشر یا کمک به نشر محتوایی که اجازه نشر آن را ندارید، قانونا <b>ممنوع</b> و شرعا <b>حرام</b> است.</p>
+                <button type="submit" class="btn btn-primary m-4">ثبت نام و ورود به صفحه پرداخت</button>
+            </form>
+        </div>
+        <div class="m-2 d-box">
+            <p class="text-muted">می توانید قوانین و مقررات را اینجا بخوانید.</p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block 'body' %}
+    <div class="card mx-auto m-5" style="width: 25rem;">
+        <div class="card-body">
+            <h5 class="card-title">ورود</h5>
+            <h6 class="card-subtitle mb-2 text-muted">برای ورود مشخصات زیر را کامل کنید.</h6>
+            <form action="{% url 'UserSignInURL' %}" class="" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.email.label }}
+                    {{ form.email }}
+                    <div class="form-text">{{ form.email.errors }}</div>
+                </div>
+                <div class="mb-3">
+                    {{ form.password.label }}
+                    {{ form.password }}
+                    <div class="form-text">{{ form.password.errors }}</div>
+                </div>
+                <hr>
+                <div class="mb-3">
+                    <h6>من ربات نیستم</h6>
+                    {{ form.captcha }}
+                    {{ form.captcha.errors }}
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-primary">ورود</button>
+                <hr>
+                <div class="d-flex">
+                    <p>در سایت ما اکانت ندارید؟</p>
+                    <a href="{% url 'UserSignUpURL' %}">حالا ثبت نام کنید!</a>
+                </div>
+                <div class="d-flex">
+                    <p>نام کاربری یا گذرواژه خود را فراموش کرده اید؟</p>
+                    <a href="{% url 'UserRecoveryURL' %}">اکانت خود را بازیابی کنید</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

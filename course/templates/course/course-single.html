@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+
+{% block 'body' %}
+    <div class="p-3">
+    </div>
+    <div class="m-5" style="width: 65%;">
+        <img src="https://placeimg.com/775/400/tech" class="d-block w-100 rounded">
+        <hr>
+        <div class="">
+            <h4>توضیحات دوره</h4>
+            <hr class="w-25">
+            <p>{{ course.description }}</p>
+        </div>
+        <div class="">
+            <h4>مباحث دوره</h4>
+            <hr class="w-25">
+            <div class="overflow-auto" style="max-height: 500px">
+                <div class="px-5 py-3">
+                    <div class="d-flex pt-4">
+                        <h5>معرفی</h5>
+                    </div>
+                    <div class="pb-2">
+                        <p>-معرفی دوره</p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+        <div class="">
+            <div class="d-flex">
+                <h4 class="">نظرات دانشجویان </h4>
+                <i class="bi bi-chat-right-dots px-2"></i>
+                <p class="text-muted">۲۵</i></p>
+            </div>
+            <hr class="w-25">
+            <div class="overflow-auto" style="max-height: 500px">
+                <div class="px-5 py-3">
+                    <div class="d-flex pt-4">
+                        <h5>علی مرادی</h5>
+                        <i class="bi bi-dot px-2"></i>
+                        <p class="text-muted">۲۳ فروردین ۱۴۰۱</p>
+                    </div>
+                    <div class="pb-2">
+                        <p>سلام دوره خیلی خوبه خیلی ممنون از دوره خوبتون.</p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <aside class="d-flex flex-column flex-shrink-0 position-absolute top-0 start-0" style="width: 25%; margin-top: 10%">
+        <div class="bg-secondary bg-gradient text-light rounded-end p-3">
+            <h2>{{ course.title }}</h2>
+            <ul>
+                <li class="d-flex">
+                    <p>مدرس:</p>
+                    <p>{{ course.teacher.first_name }}</p>
+                </li>
+                <li class="d-flex">
+                    <p>سطح دوره:</p>
+                    <p>{{ course.teacher }}</p>
+                </li>
+                <li class="d-flex">
+                    <p>دانشجویان:</p>
+                    <p>{{ course.students }}</p>
+                </li>
+                <li class="d-flex">
+                    <p>وضعیت:</p>
+                    <p>{{ course.teacher }}</p>
+                </li>
+                <li class="d-flex">
+                    <p>قیمت:</p>
+                    <p>{{ course.price }}</p>
+                </li>
+            </ul>
+            <button class="btn btn-primary form-control">الان شروع کنید<i class="bi bi-lightning-fill"></i></button>
+        </div>
+        <hr>
+        <div class="bg-secondary bg-gradient text-light rounded-end p-3">
+            <h4>در مورد این دوره سوالی دارید؟</h4>
+            <form action="">
+                <div class="mb-3">
+                    <label class="form-label"></label>
+                    <input type="text" placeholder="سوال بپرسید" class="form-control">
+                    <div class="form-text text-light">حداکثر طول مجاز سوال ۳۰۰ کاراکتر می باشد.</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"></label>
+                    <input type="tel" placeholder="تلفن تماس" class="form-control">
+                    <div class="form-text text-light">کارشناسان پاسخگو با شما تماس خواهند گرفت.</div>
+                </div>
+                <button class="btn btn-dark form-control">ارسال</button>
+            </form>
+        </div>
+    </aside>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block 'body' %}
+    {% include 'user/dashboard-nav-com.html' %}
+
+    <div class="row">
+        <div class="card m-2" style="width: 80%">
+            <form action="" class="">
+                <div class="d-flex">
+                    <div class="m-4">
+                        <label class="form-label">نام</label>
+                        <input type="text" class="form-control" disabled>
+                        <div class="form-text"></div>
+                    </div>
+                    <div class="m-4">
+                        <label class="form-label">نام خانوادگی</label>
+                        <input type="text" class="form-control" disabled>
+                        <div class="form-text"></div>
+                    </div>
+                    <div class="m-4">
+                        <label class="form-label">ایمیل</label>
+                        <input type="email" class="form-control" disabled>
+                        <div class="form-text"></div>
+                    </div>
+                    <div class="m-4">
+                        <label class="form-label">شماره تلفن</label>
+                        <input type="tel" class="form-control" disabled>
+                        <div class="form-text"></div>
+                    </div>
+                </div>
+                <hr>
+                <div class="mb-4">
+                    <label class="form-label">متن پیام</label>
+                    <input type="text" class="form-control" style="min-height: 200px;" multiple>
+                    <div class="form-text">متن پیام باید به طور واضح مشکل را مطرح کند، به تیکت هایی که متن واضحی نداشته باشند پاسخی داده نمی شود.</div>
+                </div>
+                <hr>
+                <div class="mb-4">
+                    <h6>من ربات نیستم</h6>
+                    <label class="form-label">۳ + ۷ = </label>
+                    <input type="email" class="form-control" aria-describedby="emailHelp">
+                    <div class="form-text">برای ادامه روند ارسال تیکت پشتیبانی، لطفا حاصل عبارت ریاضی بالا را وارد کنید.</div>
+                </div>
+                <hr>
+                <div class="mb-4">
+                    <label class="form-check-label">شرایط و ضوابط ارسال تیکت پشتیبانی را می پذیرم.</label>
+                    <input type="checkbox" class="form-check-input" aria-describedby="emailHelp">
+                    <div class="form-text">پیش از پذیرفتن شرایط و ضوابط آنها را <a href="">اینجا</a>بخوانید.</div>
+                </div>
+                <button type="submit" class="btn btn-primary m-4">ارسال تیکت</button>
+            </form>
+        </div>
+        <div class="card m-2" style="width: 80%">
+            <p class="text-muted">می توانید قوانین و مقررات را اینجا بخوانید.</p>
+        </div>
+    </div>
+{% endblock %}

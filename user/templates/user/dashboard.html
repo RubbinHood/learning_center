@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block 'body' %}
+    {% include 'user/dashboard-nav-com.html' %}
+
+    <div class="row">
+        <div class="card m-2" style="width: 45%">
+            <div class="card-body">
+                <h5 class="card-title">امروز</h5>
+                <h6 class="card-subtitle mb-2 text-muted">شنبه ۱۵ مرداد ۱۴۰۱</h6>
+                <ul class="list-group overflow-auto" style="max-height:100px;">
+                    <li class="list-group-item">
+                        <p class="text-danger">
+                            برای امروز هیچ رویدادی وجود ندارد.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card m-2" style="width: 45%">
+            <div class="card-body">
+                <h5 class="card-title">دوره های تمام نشده</h5>
+                <h6 class="card-subtitle mb-2 text-muted">دیدن دوره ها ادامه دهید</h6>
+                <ul class="list-group overflow-auto" style="max-height:100px;">
+                    <li class="list-group-item">
+                        <p class="text-danger">
+                            شما هیچ دوره تمام نشده ای ندارید.
+                            <a href="#" class="card-link">یادگیری را آغاز کنید</a>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card m-2" style="width: 45%">
+            <div class="card-body">
+                <h5 class="card-title">اطلاعات کاربری</h5>
+                <h6 class="card-subtitle mb-2 text-muted"></h6>
+                <ul class="list-group">
+                    <li class="list-group-item d-flex bg-info">
+                        <h5>مشترک طلایی</h5>
+                    </li>
+                    <li class="list-group-item d-flex">
+                        <h5>نام و نام خانوادگی:</h5>
+                        <p>سید سروش غلامزاده</p>
+                    </li>
+                    <li class="list-group-item d-flex">
+                        <h5>آدرس ایمیل:</h5>
+                        <p>s.s.gholamzadeh@outlook.com</p>
+                    </li>
+                    <li class="list-group-item d-flex">
+                        <h5>شماره تلفن: </h5>
+                        <p>۹۸-۹۱۵-۶۴۴-۵۰۹۷</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card m-2" style="width: 45%">
+            <div class="card-body">
+                <h5 class="card-title">اعلانات</h5>
+                <h6 class="card-subtitle mb-2 text-muted">تابلو اعلانات</h6>
+                <ul class="list-group overflow-auto" style="max-height:100px;">
+                    <li class="list-group-item">
+                        <p class="text-danger">
+                            هیچ اعلان جدیدی وجود ندارد.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

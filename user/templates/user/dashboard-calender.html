@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block 'body' %}
+    {% comment %}{% include 'user/dashboard-nav-com.html' %}{% endcomment %}
+
+    <div class="row p-5 w-50">
+        <h5 class="alert alert-info">
+            این سرویس هنوز فعالسازی نشده است.
+            <a href="{% url 'UserDashboardURL' %}">به داشبورد باز گردید.</a>
+        </h5>
+    </div>
+{% endblock %}

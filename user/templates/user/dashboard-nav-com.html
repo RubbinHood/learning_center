@@ -1,0 +1,12 @@
+{% load thumbnail %}
+<aside class="d-flex flex-column flex-shrink-0 position-absolute top-0 start-0" style="width: 65px; margin-top: 10%">
+    <div class="bg-secondary bg-gradient text-white rounded-end p-3 d-flex flex-column flex-shrink">
+        <a href="{% url 'UserDashboardURL' %}" class=""><i class="bi bi-speedometer2 text-white fs-3"></i></a>
+        <a href="{% url 'dashboard_courses' %}"><i class="bi bi-pencil text-white fs-3"></i></a>
+        <a href=""><i class="bi bi-laptop text-white fs-3 text-muted"></i></a>
+        <a href=""><i class="bi bi-calendar-week text-white fs-3 text-muted"></i></a>
+        <a href="{% url 'UserDashboardProfileURL' %}"><i class="bi bi-person text-white fs-3"></i></a>
+        <a href="{% url 'dashboard_support' %}"><i class="bi bi-headset text-white fs-3"></i></a>
+        <a href="{% url 'UserSignOutURL' %}"><i class="bi bi-box-arrow-left text-danger fs-3"></i></a>
+    </div>
+</aside>
