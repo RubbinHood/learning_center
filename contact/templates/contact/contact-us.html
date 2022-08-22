@@ -1,30 +1,84 @@
 {% extends 'layout.html' %}
 {% block 'body' %}
-    <div class="p-5"><h2>تماس با ما</h2></div>
-    <div class="d-flex p-5">
-        <div class="mapouter"><div class="gmap_canvas"><iframe width="800" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=sajad,%20district1,%20mashhad&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies-online.net"></a><br><style>.mapouter{position:relative;text-align:right;height:400px;width:800px;}</style><a href="https://www.embedgooglemap.net">google maps iframe embed</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:400px;width:800px;}</style></div></div>
-        <div class="alert alert-dark m-5">
-            <div class="d-flex p-2">
-                <p class="fs-6">پست الترونیک:</p>
-                <a href="mailto: info@xtechno.ir" class="fs-6">info@xtechno.ir</a>
-            </div>
-            <div class="d-flex p-2">
-                <p class="fs-6">تلفن تماس:</p>
-                <a class="fs-6" href="tel:+989156445097">09156445097</a>
-                <p>,</p>
-                <a class="fs-6" href="tel:+989908425720">09908425720</a>
-            </div>
-            <div class="d-flex p-2">
-                <p class="fs-6">آدرس:</p>
-                <p class="fs-6">ایران، خراسان رضوی، مشهد، منطقه 1، بلوار سجاد</p>
-            </div>
-            <div class="d-flex p-2">
-                <p class="fs-6">شبکه های اجتماعی: </p>
-                <p class="fs-6"></p>
-            </div>
+<div class="p-5"><h2>تماس با ما</h2></div>
+<div class="d-flex p-5">
+    <div class="mapouter">
+        <div class="gmap_canvas">
+            <iframe width="800" height="400" id="gmap_canvas"
+                    src="https://maps.google.com/maps?q=sajad,%20district1,%20mashhad&t=&z=11&ie=UTF8&iwloc=&output=embed"
+                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            <a href="https://fmovies-online.net"></a><br>
+            <style>.mapouter{position:relative;text-align:right;height:400px;width:800px;}</style>
+            <a href="https://www.embedgooglemap.net">google maps iframe embed</a>
+            <style>.gmap_canvas {overflow:hidden;background:none!important;height:400px;width:800px;}</style>
         </div>
     </div>
-    <div class="p-5">
-        <h4>ارسال پیام</h4>
+    <div class="alert alert-dark m-5">
+        <div class="d-flex p-2">
+            <p class="fs-6">پست الترونیک:</p>
+            <a href="mailto: info@xtechno.ir" class="fs-6">info@xtechno.ir</a>
+        </div>
+        <div class="d-flex p-2">
+            <p class="fs-6">تلفن تماس:</p>
+            <a class="fs-6" href="tel:+989156445097">09156445097</a>
+            <p>,</p>
+            <a class="fs-6" href="tel:+989908425720">09908425720</a>
+        </div>
+        <div class="d-flex p-2">
+            <p class="fs-6">آدرس:</p>
+            <p class="fs-6">ایران، خراسان رضوی، مشهد، منطقه 1، بلوار سجاد</p>
+        </div>
+        <div class="d-flex p-2">
+            <p class="fs-6">شبکه های اجتماعی: </p>
+            <p class="fs-6"></p>
+        </div>
     </div>
+</div>
+<div class="p-5">
+    <h4>ارسال پیام</h4>
+    <form action="{% url 'ContactUsURL' %}" class="" method="post">
+        {% csrf_token %}
+        {% if success %}
+        <div class="alert alert-success">پیام شما با موفقیت ارسال شد.</div>
+        {% endif %}
+        <div class="d-flex">
+            <div class="">
+                <label class="form-label">{{ form.first_name.label }}</label>
+                {{ form.first_name }}
+                <div class="form-text"></div>
+            </div>
+            <div class="me-3">
+                <label class="form-label">{{ form.last_name.label }}</label>
+                {{ form.last_name }}
+                <div class="form-text"></div>
+            </div>
+            <div class="me-3">
+                <label class="form-label">{{ form.email.label }}</label>
+                {{ form.email }}
+                <div class="form-text"></div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">{{ form.title.label }}</label>
+            {{ form.title }}
+            <div class="form-text">حداکثر 300 کاراکتر مجاز است.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">{{ form.text.label }}</label>
+            {{ form.text }}
+            <div class="form-text"></div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">{{ form.attachment.label }}</label>
+            {{ form.attachment }}
+            <div class="form-text">فایل تا حجم حداکثر 8 مگابایت مجاز است.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">{{ form.captcha.label }}</label>
+            {{ form.captcha }}
+            <div class="form-text"></div>
+        </div>
+        <button class="btn btn-primary" type="submit">ارسال</button>
+    </form>
+</div>
 {% endblock %}

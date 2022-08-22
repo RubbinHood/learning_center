@@ -1,6 +1,5 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
-
 urlpatterns = [
     path('sign-in', views.SignInView.as_view(), name='UserSignInURL'),
     path('sign-up', views.SignUpView.as_view(), name='UserSignUpURL'),
@@ -12,7 +11,4 @@ urlpatterns = [
     path('courses', views.DashboardCoursesView.as_view(), name='dashboard_courses'),
     path('onlineclasses', views.DashboardOnlineClassesView.as_view(), name='dashboard_onlineclasses'),
     path('calender', views.DashboardCalenderView.as_view(), name='dashboard_calender'),
-    path('support', views.DashboardSupportView.as_view(), name='dashboard_support'),
-    path('password-reset-request', views.UserPasswordResetRequestView.as_view(), name='UserPasswordResetRequest'),
-    path('password-reset/<int:activation_code>', views.UserPasswordResetRequestView.as_view(), name='UserPasswordReset'),
 ]
