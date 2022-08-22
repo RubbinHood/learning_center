@@ -1,59 +1,85 @@
 {% extends 'layout.html' %}
 
 {% block 'body' %}
-    <div class="row p-5">
-        <div class="alert alert-info">شما در حال ارسال درخواست پشتیبانی به صورت ناشناس هستید، اگر حساب کاربری دارید از
-            <a href="">پشتیبانی کاربران</a> در داشبورد خود اقدام به ارسال تیکت کنید. توجه کنید که تیکت های کاربران در اولویت قرار دارند.</div>
-        <div class="alert alert-warning">این بخش فقط مخصوص درخواست پشتیبانی ورود به حساب کاربری یا سوالات پیش از خرید است, برای ارتباط با مدیران از بخش
-            <a href="">تماس با ما</a> اقدام به ارسال پیام کنید.</div>
-        <div class="card m-2" style="width: 80%">
-            <form action="" class="">
-                <div class="d-flex">
-                    <div class="m-4">
-                        <label class="form-label">نام</label>
-                        <input type="text" class="form-control">
-                        <div class="form-text"></div>
-                    </div>
-                    <div class="m-4">
-                        <label class="form-label">نام خانوادگی</label>
-                        <input type="text" class="form-control">
-                        <div class="form-text"></div>
-                    </div>
-                    <div class="m-4">
-                        <label class="form-label">ایمیل</label>
-                        <input type="email" class="form-control">
-                        <div class="form-text"></div>
-                    </div>
-                    <div class="m-4">
-                        <label class="form-label">شماره تلفن</label>
-                        <input type="tel" class="form-control">
-                        <div class="form-text"></div>
-                    </div>
-                </div>
-                <hr>
-                <div class="mb-4">
-                    <label class="form-label">متن پیام</label>
-                    <input type="text" class="form-control" style="min-height: 200px;" multiple>
-                    <div class="form-text">متن پیام باید به طور واضح مشکل را مطرح کند، به تیکت هایی که متن واضحی نداشته باشند پاسخی داده نمی شود.</div>
-                </div>
-                <hr>
-                <div class="mb-4">
-                    <h6>من ربات نیستم</h6>
-                    <label class="form-label">۳ + ۷ = </label>
-                    <input type="email" class="form-control" aria-describedby="emailHelp">
-                    <div class="form-text">برای ادامه روند ارسال تیکت پشتیبانی، لطفا حاصل عبارت ریاضی بالا را وارد کنید.</div>
-                </div>
-                <hr>
-                <div class="mb-4">
-                    <label class="form-check-label">شرایط و ضوابط ارسال تیکت پشتیبانی را می پذیرم.</label>
-                    <input type="checkbox" class="form-check-input" aria-describedby="emailHelp">
-                    <div class="form-text">پیش از پذیرفتن شرایط و ضوابط آنها را <a href="">اینجا</a>بخوانید.</div>
-                </div>
-                <button type="submit" class="btn btn-primary m-4">ارسال تیکت</button>
-            </form>
-        </div>
-        <div class="card m-2" style="width: 80%">
-            <p class="text-muted">می توانید قوانین و مقررات را اینجا بخوانید.</p>
-        </div>
+<div class="row p-5">
+    {% if not request.user.is_authenticated %} {% if request.user.is_authenticated %}{% endif %}
+    <div class="alert alert-warning">شما در حال ارسال درخواست پشتیبانی به صورت ناشناس هستید، اگر حساب کاربری دارید ابتدا
+        وارد شوید.
     </div>
+    {% endif %}
+    <div class="alert alert-warning">این بخش فقط مخصوص درخواست پشتیبانی است,
+        برای ارتباط با مدیران از بخش
+        <a href="">تماس با ما</a> اقدام به ارسال پیام کنید.
+    </div>
+    <div class="card m-2" style="width: 80%">
+        <form action="{% url 'SupportURL' %}" class="" method="post">
+            {% csrf_token %}
+            {% if success %}
+            <div class="alert alert-success m-3">
+                درخواست شما با موفقیت ارسال شد.
+            </div>
+            {% endif %}
+            {% if not request.user.is_authenticated %}
+            <div class="d-flex">
+                <div class="m-4">
+                    {{ form.first_name.label }}
+                    {{ form.first_name }}
+                    <div class="form-text"></div>
+                </div>
+                <div class="m-4">
+                    {{ form.last_name.label }}
+                    {{ form.last_name }}
+                    <div class="form-text"></div>
+                </div>
+                <div class="m-4">
+                    {{ form.email.label }}
+                    {{ form.email }}
+                    <div class="form-text"></div>
+                </div>
+            </div>
+            {% else %}
+            <div class="alert alert-warning d-flex m-2">
+                <p>شما به عنوان کاربر</p>
+                <p>{{ request.user.first_name }} {{ request.user.last_name }}</p>
+                <p>وارد شده اید.</p>
+            </div>
+            {% endif %}
+            <hr>
+            <div class="mb-4">
+                {{ form.title.label }}
+                {{ form.title }}
+                <div class="form-text">
+                </div>
+            </div>
+            <div class="mb-4">
+                {{ form.text.label }}
+                {{ form.text }}
+                <div class="form-text">متن پیام باید به طور واضح مشکل را مطرح کند، به تیکت هایی که متن واضحی نداشته
+                    باشند پاسخی داده نمی شود.
+                </div>
+            </div>
+            <div class="mb-4">
+                {{ form.attachment.label }}
+                {{ form.attachment }}
+                <div class="form-text">حداکثر حجم مجاز 8 مگابایت است.
+                </div>
+            </div>
+            <hr>
+            <div class="mb-4">
+                {{ form.captcha.label }}
+                {{ form.captcha }}
+            </div>
+            <hr>
+            <div class="mb-4">
+                <label class="form-check-label">شرایط و ضوابط ارسال تیکت پشتیبانی را می پذیرم.</label>
+                <input type="checkbox" class="form-check-input" aria-describedby="emailHelp">
+                <div class="form-text">پیش از پذیرفتن شرایط و ضوابط آنها را <a href="">اینجا</a>بخوانید.</div>
+            </div>
+            <button type="submit" class="btn btn-primary m-4">ارسال تیکت</button>
+        </form>
+    </div>
+    <div class="card m-2" style="width: 80%">
+        <p class="text-muted">می توانید قوانین و مقررات را اینجا بخوانید.</p>
+    </div>
+</div>
 {% endblock %}

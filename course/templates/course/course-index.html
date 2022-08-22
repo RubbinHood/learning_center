@@ -2,23 +2,26 @@
 {% load render_partial %}
 
 {% block 'body' %}
-    <div class="navbar bg-secondary w-100">
-        <form action="" class="d-flex m-3">
-            <input class="form-control" placeholder="جستجو">
-            <button class="btn btn-primary"><i class="bi bi-search"></i></button>
-        </form>
-        <div class="d-flex border rounded m-3">
-            <button class="btn btn-info border-start rounded-0">همه</button>
-            <button class="btn border-start rounded-0">رایگان</button>
-            <button class="btn rounded-0">فروشی</button>
+<div class="navbar bg-secondary w-100">
+    <form action="{% url 'CourseIndexURL' %}" class="d-flex m-3" method="get">
+        <input class="form-control m-1" placeholder="جستجو">
+        <button class="btn btn-primary m-1"><i class="bi bi-search"></i></button>
+    </form>
+    <div class="d-flex border rounded m-3">
+        <button name="tag" type="submit" value="all" class="btn btn-info border-start rounded-0">همه</button>
+        <button name="tag" type="submit" value="free" class="btn border-start rounded-0">رایگان</button>
+        <button name="tag" type="submit" value="paid" class="btn rounded-0">فروشی</button>
+    </div>
+</div>
+
+<div class="row p-5">
+    {% if not_found %}
+        <div class="alert alert-danger">
+            <p>دوره ای با مشخصات وارد شده یافت نشد.</p>
         </div>
-    </div>
-
-
-
-    <div class="row p-5">
-        {% for course in courses %}
-                {% render_partial 'course.views.course_card_partial_view' course=course %}
-        {% endfor %}
-    </div>
+    {% endif %}
+    {% for course in courses %}
+    {% render_partial 'course.views.course_card_partial_view' course=course %}
+    {% endfor %}
+</div>
 {% endblock %}

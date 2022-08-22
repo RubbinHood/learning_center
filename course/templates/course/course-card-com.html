@@ -17,7 +17,11 @@
         </div>
         <div class="d-flex">
             <p>قیمت:</p>
+            {% if course.price == 0 %}
+            <p class="text-success">رایگان</p>
+            {% else %}
             <p>{{  course.price }}</p>
+            {% endif %}
         </div>
         <a href="{% url 'CourseSingleURL' id=course.id %}" class="btn btn-primary">اطلاعات بیشتر</a>
     </div>

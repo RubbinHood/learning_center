@@ -1,117 +1,30 @@
 {% extends 'layout.html' %}
 
 {% block 'body' %}
-    <div class="navbar bg-secondary w-100">
-        <form action="" class="d-flex m-3">
-            <input class="form-control" placeholder="جستجو در مقالات">
-            <button class="btn btn-primary"><i class="bi bi-search"></i></button>
-        </form>
-        <div class="d-flex border rounded m-3">
-            <button class="btn border-start rounded-0">نویسنده شوید!</button>
-        </div>
+<div class="navbar bg-secondary w-100">
+    <form action="{% url 'ArticleIndexURL' %}" class="d-flex m-3" method="get">
+        <input name="search" type="search" class="form-control m-1" placeholder="جستجو" value="{{ search }}">
+        <select name="category" class="form-select m-1">
+            <option value="all">همه دسته بندی ها</option>
+            {% for category in categories %}
+                <option value="{{ category.id }}" {% if filtered_category.id == category.id %} selected {% endif %}>{{ category }}</option>
+            {% endfor %}
+        </select>
+        <button class="btn btn-primary m-1"><i class="bi bi-search"></i></button>
+    </form>
+    <div class="d-flex border rounded m-3">
+        <button class="btn border-start rounded-0">نویسنده شوید!</button>
     </div>
+</div>
 
-
-
-    <div class="row p-5">
-        <div class="card m-3" style="width: 18rem;">
-            <img src="https://placeimg.com/286/180/tech" class="card-img-top rounded-3 mt-2" alt="">
-            <div class="card-body">
-                <h5 class="card-title">آموزش پایتون مقدماتی</h5>
-                <p>
-                    نویسنده: سروش غلامزاده
-                    <br>
-                    زمان مطالعه: 20 دقیقه
-                    <br>
-                    تاریخ: 28 اردیبهشت
-                </p>
-                <a href="#" class="btn btn-primary">مطالعه</a>
-            </div>
+<div class="row p-5">
+    {% if not_found %}
+        <div class="alert alert-danger">
+            <p>مقاله ای با مشخصات وارد شده یافت نشد.</p>
         </div>
-        <div class="card m-3" style="width: 18rem;">
-            <img src="https://placeimg.com/286/180/tech" class="card-img-top rounded-3 mt-2" alt="">
-            <div class="card-body">
-                <h5 class="card-title">آموزش پایتون مقدماتی</h5>
-                <p>
-                    نویسنده: سروش غلامزاده
-                    <br>
-                    زمان مطالعه: 20 دقیقه
-                    <br>
-                    تاریخ: 28 اردیبهشت
-                </p>
-                <a href="#" class="btn btn-primary">مطالعه</a>
-            </div>
-        </div>
-        <div class="card m-3" style="width: 18rem;">
-            <img src="https://placeimg.com/286/180/tech" class="card-img-top rounded-3 mt-2" alt="">
-            <div class="card-body">
-                <h5 class="card-title">آموزش پایتون مقدماتی</h5>
-                <p>
-                    نویسنده: سروش غلامزاده
-                    <br>
-                    زمان مطالعه: 20 دقیقه
-                    <br>
-                    تاریخ: 28 اردیبهشت
-                </p>
-                <a href="#" class="btn btn-primary">مطالعه</a>
-            </div>
-        </div>
-        <div class="card m-3" style="width: 18rem;">
-            <img src="https://placeimg.com/286/180/tech" class="card-img-top rounded-3 mt-2" alt="">
-            <div class="card-body">
-                <h5 class="card-title">آموزش پایتون مقدماتی</h5>
-                <p>
-                    نویسنده: سروش غلامزاده
-                    <br>
-                    زمان مطالعه: 20 دقیقه
-                    <br>
-                    تاریخ: 28 اردیبهشت
-                </p>
-                <a href="#" class="btn btn-primary">مطالعه</a>
-            </div>
-        </div>
-        <div class="card m-3" style="width: 18rem;">
-            <img src="https://placeimg.com/286/180/tech" class="card-img-top rounded-3 mt-2" alt="">
-            <div class="card-body">
-                <h5 class="card-title">آموزش پایتون مقدماتی</h5>
-                <p>
-                    نویسنده: سروش غلامزاده
-                    <br>
-                    زمان مطالعه: 20 دقیقه
-                    <br>
-                    تاریخ: 28 اردیبهشت
-                </p>
-                <a href="#" class="btn btn-primary">مطالعه</a>
-            </div>
-        </div>
-        <div class="card m-3" style="width: 18rem;">
-            <img src="https://placeimg.com/286/180/tech" class="card-img-top rounded-3 mt-2" alt="">
-            <div class="card-body">
-                <h5 class="card-title">آموزش پایتون مقدماتی</h5>
-                <p>
-                    نویسنده: سروش غلامزاده
-                    <br>
-                    زمان مطالعه: 20 دقیقه
-                    <br>
-                    تاریخ: 28 اردیبهشت
-                </p>
-                <a href="#" class="btn btn-primary">مطالعه</a>
-            </div>
-        </div>
-        <div class="card m-3" style="width: 18rem;">
-            <img src="https://placeimg.com/286/180/tech" class="card-img-top rounded-3 mt-2" alt="">
-            <div class="card-body">
-                <h5 class="card-title">آموزش پایتون مقدماتی</h5>
-                <p>
-                    نویسنده: سروش غلامزاده
-                    <br>
-                    زمان مطالعه: 20 دقیقه
-                    <br>
-                    تاریخ: 28 اردیبهشت
-                </p>
-                <a href="#" class="btn btn-primary">مطالعه</a>
-            </div>
-        </div>
-
-    </div>
+    {% endif %}
+    {% for article in articles %}
+        {% include 'article/article-card-com.html' %}
+    {% endfor %}
+</div>
 {% endblock %}

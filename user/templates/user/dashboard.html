@@ -41,15 +41,15 @@
                     </li>
                     <li class="list-group-item d-flex">
                         <h5>نام و نام خانوادگی:</h5>
-                        <p>سید سروش غلامزاده</p>
+                        <p>{{ user.first_name }} {{ user.last_name }}</p>
                     </li>
                     <li class="list-group-item d-flex">
                         <h5>آدرس ایمیل:</h5>
-                        <p>s.s.gholamzadeh@outlook.com</p>
+                        <p>{{ user.email }}</p>
                     </li>
                     <li class="list-group-item d-flex">
                         <h5>شماره تلفن: </h5>
-                        <p>۹۸-۹۱۵-۶۴۴-۵۰۹۷</p>
+                        <p>{{ user.phone }}</p>
                     </li>
                 </ul>
             </div>

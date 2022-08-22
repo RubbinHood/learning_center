@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% load thumbnail %}
+{% block 'body' %}
+<div class="d-flex justify-content-center">
+    <div class="m-5 " style="width: 65%;">
+        {% thumbnail article.image "775x400" quality=60 as img %}
+            <img src="{{  img.url }}" class="card-img-top rounded-3 mt-2" alt="">
+        {% endthumbnail %}
+        <hr>
+        <div class="d-flex justify-content-center">
+            <h4>{{ article.title }}</h4>
+        </div>
+        <hr>
+        <div class="">
+            <p>{{ article.text|safe }}</p>
+        </div>
+        <hr>
+        <div class="d-flex text-secondary">
+            <p>شماره خبر:</p>
+            <p>N-{{ article.id|add:11759 }}</p>
+            <p class="p-2"></p>
+            <p>نویسنده:</p>
+            <p>{{ article.author }}</p>
+            <p class="p-2"></p>
+            <p>نوشته شده در:</p>
+            <p>{{ article.date }}</p>
+            <p class="p-2"></p>
+            <p>بازدید:</p>
+            <p>{{ article.views }}</p>
+            <p class="p-2"></p>
+            <p>تگ ها:</p>
+            <p>
+                {% for tag in article.tag.all %}
+                {{ tag }}
+                {% endfor %}
+            </p>
+        </div>
+        <hr>
+        <p class="p-3"></p>
+        <div class="">
+            <div class="d-flex">
+                <h4 class="">نظرات کاربران </h4>
+                <i class="bi bi-chat-right-dots px-2"></i>
+                <p class="text-muted">۲۵</i></p>
+            </div>
+            <hr class="w-25">
+            <div class="overflow-auto" style="max-height: 500px">
+                <div class="px-5 py-3">
+                    <div class="d-flex pt-4">
+                        <h5>علی مرادی</h5>
+                        <i class="bi bi-dot px-2"></i>
+                        <p class="text-muted">۲۳ فروردین ۱۴۰۱</p>
+                    </div>
+                    <div class="pb-2">
+                        <p>سلام دوره خیلی خوبه خیلی ممنون از دوره خوبتون.</p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
