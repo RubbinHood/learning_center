@@ -48,9 +48,10 @@ class SignUpView(views.View):
             )
             new_user.set_password(form.cleaned_data['password'])
             new_user.save()
+            new_user = models.User.objects.filter(email=new_user.email)
             mail.send_mail(to=form.cleaned_data['email'], fr='noreply@xtechno.ir',
                            subject='فعالسازی حساب کاربری',
-                           text=render_to_string('email/email-activation.html'))
+                           text=render_to_string('email/email-activation.html', context={'user': new_user}))
             form = forms.SignUpForm()
             return render(request, 'user/signup.html', {'form': form, 'success': True})
         return render(request, 'user/signup.html', {'form': form})
