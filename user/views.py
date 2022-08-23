@@ -39,8 +39,8 @@ class SignUpView(views.View):
         form = forms.SignUpModelForm(request.POST)
         if form.is_valid():
             new_user = models.User(
-                first_name=form.cleaned_data['first'],
-                last_name=form.cleaned_data['last'],
+                first_name=form.cleaned_data['first_name'],
+                last_name=form.cleaned_data['last_name'],
                 email=form.cleaned_data['email'],
                 phone=form.cleaned_data['phone'],
                 username=form.cleaned_data['email'],

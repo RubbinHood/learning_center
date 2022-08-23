@@ -5,8 +5,8 @@ from . import models
 
 
 class SignUpForm(forms.Form):
-    first = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), label='نام')
-    last = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), label='نام خانوادگی')
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), label='نام')
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), label='نام خانوادگی')
     email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'form-control'}), label='پست الکترونیک')
     phone = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-control'}), label='شماره موبایل')
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}), label='کلمه عبور')
